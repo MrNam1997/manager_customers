@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use App\Customer;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CustomerTableSeeder extends Seeder
 {
@@ -14,10 +13,15 @@ class CustomerTableSeeder extends Seeder
      */
     public function run()
     {
-        $customer = new Customer();
-        $customer->name = "abc";
-        $customer->save();
+        for ($i = 0; $i <= 30; $i++) {
+            $customer = new Customer();
+            $customer->name = str::random(15);
+            $customer->email = str::random(10) . "@gmail.com";
+            $customer->dob = '2015-11-11';
+            $customer->save();
 
+
+        }
 
     }
 }
